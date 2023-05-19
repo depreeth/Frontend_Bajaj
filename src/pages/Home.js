@@ -1,6 +1,7 @@
 import React,{ useEffect, useState } from 'react'
 import Navbar from '../Components/Navbar'
 import CardHome from '../Components/CardHome';
+import DescriptionPage from './DescriptionPage';
 
 const Home = () => {
 
@@ -11,7 +12,7 @@ const Home = () => {
     setSelectedId(id);
   };
 
-  // Get the selected data object based on the selectedId
+  
   const selectedData = jsonData.find(item => item.id === selectedId);
 
 
@@ -31,11 +32,13 @@ const Home = () => {
     fetchData();
   }, []);
   console.log(jsonData)
+  console.log("select",selectedData)
 
   return (
     <div className=' w-full h-full bg-gradient-to-b from-gray-800 to-black text-white'>
      <Navbar/>
      <CardHome data={jsonData} onItemClick={handleItemClick} />
+     {selectedData && <DescriptionPage data={selectedData}/>}
     </div>
   )
 }
