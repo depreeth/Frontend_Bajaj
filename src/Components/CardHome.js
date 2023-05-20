@@ -17,7 +17,7 @@ const CardHome = ({ data }) => {
         <span>No skills mentioned.</span>
       ) : (item.skills.map(skill=>(<span>{skill}, </span>)))}</div>
       {!item.projects ?(
-        <div className=' text-center text-indigo-500 font-semibold'>No Projects</div>
+        <div className=' text-center text-red-500 font-semibold'>No Projects</div>
       ): item.projects &&(
             <div className=' w-full flex justify-center'>
                 <Link to={`/details/${item.id}`} className=' px-3 py-2 bg-indigo-500 rounded-lg'>Projects &rarr;</Link>
