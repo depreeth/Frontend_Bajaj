@@ -14,14 +14,43 @@ const DescriptionPage = ({ data }) => {
       <div className=' w-full flex justify-center items-center py-4'>
         <div>PROJECTS</div>
       </div>
-      <div className=' w-full h-[90vh] flex flex-row justify-center items-center gap-4 px-20  py-12' >
+      <div className=' w-full h-[90vh] grid grid-cols-2 justify-center items-center gap-4 px-20  py-12' >
         {selectedData.projects.map(item=>(
-        <div className='w-full h-[150px] flex flex-col justify-between py-4 items-center border rounded-lg border-white'>
-            <div className=' '>{item.name}</div>
+        <div className='w-full h-[420px] flex flex-col  py-4 items-center border rounded-lg border-white'>
+            <div className=' my-2 font-bold text-xl '>{item.name}</div>
             <div>{item.description}</div>
-            <div className=' flex flex-row justify-around items-center'>
-                <div><button className=' px-3 py-2 rounded-lg mx-5 bg-indigo-500'>Tasks</button></div>
-                <div><button className=' px-3 py-2 rounded-lg mx-5 bg-indigo-500'>Teams</button></div>
+            <div className=' w-full'>
+              <div className='text-xl text-center  text-indigo-500 font-semibold my-2'>Teams:</div>
+              <div className=' w-full flex justify-around items-center'>
+                <div className=' px-1 text-indigo-500 font-semibold '>Name</div>
+                <div className=' px-1 text-indigo-500 font-semibold '>Role</div>
+              </div>
+             
+                {
+                  item.team.map(teams=>(
+                    <div className=' w-full grid grid-cols-2  items-center'>
+                    <div className='my-1 text-center'>{teams.name || 'null'}</div>
+                    <div className='my-1 text-center'>{teams.role || 'null'}</div>
+                    </div>
+                  ))
+                }
+              
+              </div>
+            <div className=' w-full'>
+                <div className='text-xl text-center text-indigo-500 font-semibold my-2 '>Tasks:</div>
+                <div className=' w-full flex justify-around items-center'>
+                <div className=' px-1 text-indigo-500 font-semibold '>Name</div>
+                <div className=' px-1 text-indigo-500 font-semibold '>Status</div>
+              </div>
+             
+                {
+                  item.tasks.map(task=>(
+                    <div className=' w-full grid grid-cols-2  items-center'>
+                    <div className='my-1 text-center'>{task.name || 'null'}</div>
+                    <div className='my-1 text-center'>{task.status || "null"}</div>
+                    </div>
+                  ))
+                }
             </div>
         </div>
         ))}
