@@ -25,6 +25,7 @@ const DescriptionPage = ({ data }) => {
         <div className='w-full h-[420px] flex flex-col  py-4 items-center border rounded-lg border-white'>
             <div className=' my-2 font-bold text-xl '>{item.name}</div>
             <div>{item.description}</div>
+            {item.team &&
             <div className=' w-full'>
               <div className='text-xl text-center  text-indigo-500 font-semibold my-2'>Teams:</div>
               <div className=' w-full flex justify-around items-center'>
@@ -43,7 +44,8 @@ const DescriptionPage = ({ data }) => {
                   )))
                 }
               
-              </div>
+              </div>}
+              {item.task &&
             <div className=' w-full'>
                 <div className='text-xl text-center text-indigo-500 font-semibold my-2 '>Tasks:</div>
                 <div className=' w-full flex justify-around items-center'>
@@ -61,7 +63,7 @@ const DescriptionPage = ({ data }) => {
                     </div>
                   )))
                 }
-            </div>
+            </div>}
         </div>
         )))}
       </div>
